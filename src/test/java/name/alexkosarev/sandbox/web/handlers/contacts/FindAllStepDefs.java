@@ -14,7 +14,6 @@ import java.util.List;
 import static org.mockito.Mockito.doReturn;
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.mockUser;
-import static reactor.core.publisher.Flux.fromIterable;
 
 public class FindAllStepDefs extends Spring5CucumberIntegrationTest {
 
@@ -32,7 +31,7 @@ public class FindAllStepDefs extends Spring5CucumberIntegrationTest {
 
     @Given("^contacts stored in the storage:$")
     public void contacts_stored_in_the_storage(List<Contact> contacts) throws Throwable {
-        doReturn(fromIterable(contacts)).when(contactRepository)
+        doReturn(contacts).when(contactRepository)
                 .findAll();
     }
 

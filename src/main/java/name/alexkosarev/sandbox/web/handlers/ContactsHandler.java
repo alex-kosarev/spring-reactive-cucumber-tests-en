@@ -8,6 +8,8 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
+import static reactor.core.publisher.Flux.fromIterable;
+
 @RequiredArgsConstructor
 public class ContactsHandler {
 
@@ -15,6 +17,6 @@ public class ContactsHandler {
 
     public Mono<ServerResponse> getAllContacts(ServerRequest serverRequest) {
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
-                .body(contactRepository.findAll(), Contact.class);
+                .body(fromIterable(contactRepository.findAll()), Contact.class);
     }
 }

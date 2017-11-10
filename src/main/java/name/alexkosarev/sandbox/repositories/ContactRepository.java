@@ -1,7 +1,7 @@
 package name.alexkosarev.sandbox.repositories;
 
 import name.alexkosarev.sandbox.entities.Contact;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ContactRepository extends ReactiveCrudRepository<Contact, String> {
+public interface ContactRepository extends CrudRepository<Contact, String> {
 }
